@@ -18,9 +18,9 @@ jobs:
         with:
           username: pob_itbuu@hotmail.co.th
           password: Docker@1234
-
+          
       - name: Build Docker image
-        run: docker build -t my-image-name:latest .
+        run: docker build -t pos:latest .
 
       - name: Run Docker container
-        run: docker run -d -p 8087:8087 --name pos my-image-name:latest
+        run: docker run -d -p 8087:8087 --name pos pos:latest
