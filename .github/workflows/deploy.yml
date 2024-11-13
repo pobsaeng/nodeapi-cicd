@@ -20,4 +20,9 @@ jobs:
         run: chmod +x ./build_and_run.sh
 
       - name: Run deployment script
+        # Pass GitHub secrets as environment variables
+        env:
+          APP_PORT: ${{ secrets.APP_PORT }}
+          PRODUCT_SVC_URL: ${{ secrets.PRODUCT_SVC_URL }}
+          IS_RUNNING_IN_DOCKER: "true"  # Set this to indicate Docker environment if needed
         run: ./build_and_run.sh
