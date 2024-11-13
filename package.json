@@ -1,7 +1,7 @@
 {
   "name": "nodeapi-cicd",
   "version": "1.0.0",
-  "description": "Backend for POS System",
+  "description": "POS System",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
