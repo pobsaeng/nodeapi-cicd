@@ -16,11 +16,10 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: pob_itbuu@hotmail.co.th
-          password: Docker@1234
-          
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build Docker image
         run: docker build -t pos:latest .
-
       - name: Run Docker container
         run: docker run -d -p 8087:8087 --name pos pos:latest
