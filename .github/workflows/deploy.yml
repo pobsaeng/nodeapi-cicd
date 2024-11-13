@@ -19,11 +19,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
+      - name: Build Docker image
+        run: docker build -t my-image-name:latest .
 
-      - name: Make deployment script executable
-        run: chmod +x ./build_and_run.sh
-
-      - name: Run deployment script
-        run: ./build_and_run.sh
+      - name: Run Docker container
+        run: docker run -d -p 8087:8087 --name pos my-image-name:latest
